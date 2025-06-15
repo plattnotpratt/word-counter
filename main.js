@@ -8,7 +8,13 @@ let charCount = (text) => {
 }
 
 let wordCount = (text) => {
-    return text.split(' ').length;
+    const words = text.split(/\s+/);
+    if(words[words.length - 1] === ''){
+        return words.length -1;
+    }else{
+        return words.length;
+    }
+
 }
 
 let lineCount = (text) => {
