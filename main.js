@@ -18,14 +18,20 @@ let wordCount = (text) => {
 }
 
 let lineCount = (text) => {
-    return text.split('\n').length;
+    return textArea.querySelectorAll('div').length +1;
 }
 
-textArea.addEventListener('input', textChanged)
+textArea.addEventListener('input', function(e){
+    let text = textArea.innerText;
+    wordCountElement.innerHTML = wordCount(text);
+    charCountElement.innerHTML = charCount(text);
+    lineCountElement.innerHTML = lineCount(text);
+})
 
 
 function textChanged(e){
-    wordCountElement.innerHTML = wordCount(e.target.value);
-    charCountElement.innerHTML = charCount(e.target.value);
-    lineCountElement.innerHTML = lineCount(e.target.value);
+    let text = textArea.innerText;
+    wordCountElement.innerHTML = wordCount(text);
+    charCountElement.innerHTML = charCount(text);
+    lineCountElement.innerHTML = lineCount(text);
 }
